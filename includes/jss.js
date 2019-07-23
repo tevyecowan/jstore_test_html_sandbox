@@ -1,19 +1,12 @@
 $(document).ready(function() {
 	
-	
-	
-	
-// When the user scrolls the page, execute myFunction 
-window.onscroll = function() {myFunction()};
+window.onscroll = function() {scrollFunc()};
 
-// Get the navbar
-var navbar = document.getElementById("header");
+var navbar = $('#header');
 
-// Get the offset position of the navbar
 var sticky = navbar.offsetTop;
 
-// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
+function scrollFunc() {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky")
   } else {
@@ -31,19 +24,22 @@ $("#submit").click(function(){
 	 $("#test").append(" " + rand)
 });
 
-	$('#indexPg').click(function () {
-		$("#indexPg").attr("class", "nav-link active");
-		$("#aboutPg").attr("class", "nav-link");
-		$("#archivePg").attr("class", "nav-link");
+	var pageArray = [$("#indexPg"), $("#aboutPg"), $("#archivePg")];
+	
+	$('.nav-item').click(function () {
+		
+		for (var i = 0; i < pageArray.length; i++){
+			alert("clicked");
+			
+			if (pageArray[i].data('clicked', true)){
+				pageArray[i].classList.add("active");
+				alert("clicked" + pageArray[i].val())
+			} 
+			else {
+				pageArray[i].classList.remove("active");
+			}
+		}
 	});
-	$('#aboutPg').click(function () {
-		$("#aboutPg").attr("class", "nav-link active");
-		$("#indexPg").attr("class", "nav-link");
-		$("#archivePg").attr("class", "nav-link");
-	});
-	$('#archivePg').click(function () {
-		$("#archivePg").attr("class", "nav-link active");
-		$("#aboutPg").attr("class", "nav-link");
-		$("#indexPg").attr("class", "nav-link");
-	});
+	
+
 });
