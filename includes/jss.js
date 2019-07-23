@@ -24,22 +24,36 @@ $("#submit").click(function(){
 	 $("#test").append(" " + rand)
 });
 
-	var pageArray = [$("#indexPg"), $("#aboutPg"), $("#archivePg")];
-	
-	$('.nav-item').click(function () {
-		
-		for (var i = 0; i < pageArray.length; i++){
-			alert("clicked");
+$('.nav-item').click(function(event) {
+    var pageArray = [$("#indexPg"), $("#aboutPg"), $("#archivePg")];
+	for (var i = 0; i < pageArray.length; i++){
+		if ($(event.target).is(pageArray[i])) {
+		   alert(event.target.id + ' was clicked.'); 
+			pageArray[i].attr("class", "nav-link active");
 			
-			if (pageArray[i].data('clicked', true)){
+		}
+	}
+});
+
+
+
+
+	
+	/*$('.nav-item').click(function(e) {
+		
+		var target = $(e.target);
+
+		
+			
+			if (target.is(pageArray[i])){
 				pageArray[i].classList.add("active");
-				alert("clicked" + pageArray[i].val())
+				alert("clicked")
 			} 
 			else {
 				pageArray[i].classList.remove("active");
 			}
 		}
-	});
+	}); */
 	
 
 });
