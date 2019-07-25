@@ -36,15 +36,25 @@ $('.nav-item').click(function(event) {
 		}
 	}
 });
-*/
 
-function activate(event){
-		$('.nav-item').removeClass('active');
-	$(event.target).toggleClass('active');
-}
 
-	$('.nav-item').click(activate(event));
+	$('.nav-item').click(function(event) {
 
+		//$('.nav-item').removeClass('active');
+		$(event.target).addClass('active');
 	
 
+	});
+	*/
+	
+	$('.nav-item').on('click', 'active', function(event) {
+    event.preventDefault();
+    var liId = $(this).closest("li").attr("id");
+    alert(liId);  
 });
+	
+	
+	
+	
+	
+	});
