@@ -38,14 +38,12 @@ $('.nav-item').click(function(event) {
 });
 */
 
-	$('.nav-item').click(function(event) {
-	$('.nav-item').removeClass('active');
-	$(event.target).addClass('active');;
-});
+function activate(event){
+		$('.nav-item').removeClass('active');
+	$(event.target).toggleClass('active');
+}
 
- $(document).on("mouseover mouseout", ".active", function(){
-          alert("rwgweg");
-     }); 
+	$('.nav-item').click(activate(event));
 
 	
 
