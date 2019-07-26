@@ -37,21 +37,19 @@ $('.nav-item').click(function(event) {
 	}
 });
 
+https://aiocollective.com/blog/click-doesn-t-work-after-ajax-load-jquery/
 
-	$('.nav-item').click(function(event) {
-
-		//$('.nav-item').removeClass('active');
+*/
+	$('.nav-item').on('click', function(event) {
+		//event.preventDefault();
+		$('.nav-item').removeClass('active');
 		$(event.target).addClass('active');
 	
 
 	});
-	*/
 	
-	$('.nav-item').on('click', 'active', function(event) {
-    event.preventDefault();
-    var liId = $(this).closest("li").attr("id");
-    alert(liId);  
-});
+	
+
 	
 	
 	
